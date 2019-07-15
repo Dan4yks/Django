@@ -1,0 +1,12 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2 class="text-center">{{ news.name }}</h2>
+    {% if news.photo %}
+    <img src="{{news.photo.url}}" class="rounded-circle img-fluid">
+    {% endif %}
+    <p class="text-justify">{{ news.description }}<br><br>
+    <p><a class="btn btn-secondary" href="{% url 'home1' %}" role="button">‹‹ Назад</a></p>
+</div>
+{% endblock %}
