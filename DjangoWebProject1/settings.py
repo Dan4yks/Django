@@ -26,7 +26,7 @@ SECRET_KEY = 'ebf1ccc0-e1e5-428d-b828-28a493b86021'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dan4yk.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['dan4yk.pythonanywhere.com','dan4yk.herokuapp.com','localhost','127.0.0.1']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
