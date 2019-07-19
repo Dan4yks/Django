@@ -60,6 +60,20 @@ header.img {
     width: 5%; 
     height: 5%;
 }
+pre{
+    background-color: #ffffff;
+}
+@media (max-width: 499px){
+    body {
+    background-color: #111111;
+    background-image: none;
+    }
+}
+@media (max-width: 1000px) and (min-width: 500px){
+    .d-none{
+        display: none !important;
+     }
+}
 /*.content{
     
 }

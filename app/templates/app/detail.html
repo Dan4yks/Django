@@ -6,7 +6,26 @@
     {% if news.photo %}
     <img src="{{news.photo.url}}" class="rounded-circle img-fluid">
     {% endif %}
-    <p class="text-justify">{{ news.description }}<br><br>
+    <p class="text-justify">{{ news.description }}</p>
+    {% if news.code %}
+    <div id="close">
+        <div class="botton-groupe" role="group">
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#code1">
+                Открывает первый код
+            </button>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#code2">
+                Открывает второй код
+            </button>
+        </div>
+        <div class="collapse" data-parent="#close" id="code1">
+            <pre class="pre-scrollable"><code>{{ news.code }}</code></pre>
+        </div>
+        <div class="collapse" data-parent="#close" id="code2">
+            <pre class="pre-scrollable"><code>{{ news.code2 }}</code></pre>
+        </div>
+    </div>
+    {% endif %}
+    <br><br>
     <p><a class="btn btn-secondary" href="{% url 'home1' %}" role="button">‹‹ Назад</a></p>
 </div>
 {% endblock %}

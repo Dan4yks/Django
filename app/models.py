@@ -7,8 +7,10 @@ class News(models.Model):
     name = models.CharField(max_length=50,verbose_name='Заголовок')
     short_description = models.CharField(max_length=200,verbose_name='Краткое описание',blank=True)
     description=models.TextField(verbose_name='Описание',blank=True)
-    preview = models.ImageField('Фотография', upload_to="app/photos", default='',blank=True)
+    preview = models.ImageField('Превью', upload_to="app/photos", default='',blank=True)
     photo = models.ImageField('Фотография', upload_to="app/photos", default='',blank=True)
+    code = models.TextField(verbose_name='Пример кода',blank=True)
+    code2 = models.TextField(verbose_name='Пример кода',blank=True)
     #Мета данные чтобы названия таблиц в панели администратора были на русском
     class Meta:
         verbose_name='Новость'
