@@ -5,15 +5,16 @@ Definition of views.
 from datetime import datetime
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpRequest
-from app.models import News
-from app.forms import UserForm
+from app.models import News,Review
+from app.forms import UserForm,ReviewForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 
 
+
 def home(request):
-    assert isinstance(request, HttpRequest)
+    assert isinstance(request, HttpRequest)#assert - проверка истинности утверждений 
     return render(
         request,
         'app/index.html',
@@ -23,25 +24,36 @@ def home(request):
         }
     )
 @login_required(login_url='/login') #Декоратор для проверки зарегистрирован ли пользователь
-def contact(request):
+def review(request):
+    review_form=ReviewForm()
+    if request.method == "POST":
+        review_form=ReviewForm(request.POST)
+        if review_form.is_valid():
+            new_review = review_form.save(commit=False)
+            new_review.user_name = request.user.username
+            new_review.save()
+            return redirect(review)
+    SaitReviews=Review.objects.all()
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/contact.html',
+        'app/review.html',
         {
-            'title':'Контакты',
+            'title':'Отзыв',
+            'review_form': review_form,
+            'SaitReviews':SaitReviews,
             'message':'Если вам понравился сайт вы можете связаться с автором и поблагодарить его.',
             'year':datetime.now().year,
         }
     )
 @login_required(login_url='/login') 
-def about(request):
+def applications(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/about.html',
+        'app/applications.html',
         {
-            'title':'О нас',
+            'title':'Приложения',
             'message':'Страница для описания сайта.',
             'year':datetime.now().year,
         }
@@ -65,6 +77,7 @@ def detail(request,news_id):
     assert isinstance(request, HttpRequest)
     return render(request, 'app/detail.html',
         {
+            'title':'Подробнее',
             'news': news,
             'year':datetime.now().year,
         }
@@ -89,4 +102,3 @@ def registration(request):
             'year':datetime.now().year,
         }
     )
-    

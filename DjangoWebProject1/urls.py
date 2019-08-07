@@ -10,11 +10,12 @@ from app import forms, views
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('homepage/', views.homepage, name='home1'),
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
+    path('review/', views.review, name='review'),
+    path('applications/', views.applications, name='applications'),
     path('login/',
          LoginView.as_view
          (

@@ -1,0 +1,42 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+<h3 class="text-center">Тут можно будет оставить отзыв о моей практике !</h3>
+<div class="row">
+    {% if SaitReviews %}
+        {% for SaitFeedback in SaitReviews %}
+            <div class="col-lg-2">
+                <p>{{ SaitFeedback.user_name }}</p>
+            </div>
+            <div class="col-lg-10">
+                <p>{{ SaitFeedback.review }}</p>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <div class="col-lg-12">
+            <p class="text-center">
+                Пока нет отзывов, вы будете первым! :)
+            </p>
+        </div>
+    {% endif %}
+    <div class="col-lg-12">
+        <form method="POST" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="col-lg-12">
+                    {{ review_form }}
+                </div>
+            </div>
+            <input type="submit" value="Оставить отзыв" class="btn btn-dark" />
+        </form>
+    </div>
+</div>
+
+    <!--<address>
+    <strong>Связаться с автором сайта:</strong><a href="mailto:dan28012000@gmail.com"> dan28012000@gmail.comm</a><br />
+    <strong>По вопросам рекламы:</strong><a href="mailto:Marketing@gmail.com"> Marketing@gmail.com</a>
+</address>-->
+    {% endblock %}
