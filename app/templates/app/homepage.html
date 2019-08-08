@@ -7,7 +7,7 @@
         {% if new.preview %}
         <img src="{{new.preview.url}}" class="img-thumbnail">
         {% endif %}
-        <p class="text-justify">{{ new.short_description }}<br><br>
+        <p style="font-size: 0.8em">{{ new.short_description }}
         <p><a class="btn btn-secondary" href="{% url 'detail' news_id=new.id %}" role="button">Подробнее »</a></p>
       </div>
 {% endfor %}

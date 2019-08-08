@@ -8,7 +8,7 @@
   <title>{{ title }} - My Django Application</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'app/content/My_site.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'app/content/Mysite.css' %}"/>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#" onclick="slowScroll('#top')">
           <img class="navbar-brand" src="{% static 'app/img/555.png' %}" alt="logo">
-          Djano
+          Django
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
               <a class="nav-link" href="{% url 'home' %}">Главная</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'home1' %}">Новости</a>
+              <a class="nav-link" href="{% url 'home1' %}">Отчеты</a>
             </li>
           </ul>
           {%include 'app/loginpartial.html'%}

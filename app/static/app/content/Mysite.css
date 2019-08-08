@@ -54,6 +54,7 @@ header{
 }
 .carousel-caption {
   color: white;
+  font-size: 0.7em;
 }
 header.img {
   width: 5%; 

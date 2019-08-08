@@ -6,11 +6,9 @@
 <div class="row">
     {% if SaitReviews %}
     {% for SaitFeedback in SaitReviews %}
-    <div class="col-lg-1 col-md-1 col-sm-2 col-2">
-        <p class="text-justify">{{ SaitFeedback.user_name }}:</p>
-    </div>
-    <div class="col-lg-11 col-md-11 col-sm-10 col-10">
-        <p>{{ SaitFeedback.review }}</p>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <p>{{ SaitFeedback.user_name }}: {{ SaitFeedback.review }}</p>
     </div>
     {% endfor %}
 
