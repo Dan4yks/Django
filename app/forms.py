@@ -47,3 +47,8 @@ class ReviewForm (forms.ModelForm):
     class Meta:
         model = Review
         exclude = ('user_name',)
+        widgets = {
+            'review':forms.Textarea(attrs={'class': 'form-control',
+                                            'cols': 60,
+                                            'rows': 5 }),
+        }

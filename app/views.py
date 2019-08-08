@@ -42,7 +42,7 @@ def review(request):
             'title':'Отзыв',
             'review_form': review_form,
             'SaitReviews':SaitReviews,
-            'message':'Если вам понравился сайт вы можете связаться с автором и поблагодарить его.',
+            'message':'Если вам понравился сайт, вы можете оставить свой отзыв о проделанной мною работе',
             'year':datetime.now().year,
         }
     )

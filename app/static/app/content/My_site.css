@@ -13,12 +13,12 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   color: #ffffff;
+  font-size: 1.5em;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
   max-width: 280px;
 }
 
@@ -47,7 +47,7 @@ input[type="checkbox"].input-validation-error {
   display: none;
 }
 hr {
-  border-top: 1px solid black;
+  border-top: 1.5px solid black;
 }
 header{
   margin-top: 0px;
@@ -62,12 +62,24 @@ header.img {
 pre{
   background-color: #ffffff;
 }
+footer {
+  font-size: 0.8em;
+}
 @media (max-width: 1000px){
   body {
   background-color: #111111;
   background-image: none;
   }
-  .d-none{
+  hr {
+    border-top: 1.5px solid white;
+  }
+  .body-content {
+    font-size: 1em;
+  }
+  .carusel {
+      display: none !important;
+  }
+  .d-none {
       display: none !important;
    }
 }
