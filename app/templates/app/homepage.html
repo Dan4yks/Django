@@ -1,15 +1,19 @@
 ﻿{% extends "app/layout.html" %}
 {% block content %}
-  <div class="row">
-{% for new in news %}
-      <div class="col-lg-4">
-        <h2 class="text-center">{{ new.name }}</h2>
-        {% if new.preview %}
-        <img src="{{new.preview.url}}" class="img-thumbnail">
-        {% endif %}
-        <p style="font-size: 0.8em">{{ new.short_description }}
-        <p><a class="btn btn-secondary" href="{% url 'detail' news_id=new.id %}" role="button">Подробнее »</a></p>
-      </div>
-{% endfor %}
+<div class="row description">
+  {% for new in news %}
+  <div class="col-lg-4">
+    <h2 class="text-center">{{ new.name }}</h2>
+    {% if new.preview %}
+    <img src="{{new.preview.url}}" class="img-thumbnail">
+    {% endif %}
+    <p>
+      {{ new.short_description }}
+    </p>
+    <p>
+      <a class="btn btn-secondary" href="{% url 'detail' news_id=new.id %}" role="button">Подробнее »</a>
+    </p>
   </div>
+  {% endfor %}
+</div>
 {% endblock %}

@@ -40,6 +40,7 @@
         </div>
         {% endif %}
         {% if news.code %}
+        <br>
         <div id="close">
             <div class="botton-groupe" role="group">
                 <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#code1">
@@ -59,7 +60,6 @@
         {% endif %}
     </div>
 </div>
-<br><br>
+<br>
 <p><a class="btn btn-secondary" href="{% url 'home1' %}" role="button">‹‹ Назад</a></p>
 {% endblock %}
-src="{{news.photo.url}}"
