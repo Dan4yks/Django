@@ -8,7 +8,7 @@
   <title>{{ title }} - My Django Application</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'app/content/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'app/content/Style.css' %}" type="text/css">
 </head>
 
 <body>
@@ -49,15 +49,15 @@
         <p>&copy; {{ year }} - Автор сайта: Соколов Даниил</p>
       </div>
       <div class="col-6 text-right">
-        <a class="badge" href="https://www.instagram.com/dan4yk_/?hl=ru"> 
-          <img src="{% static 'app/img/instagram.png' %}" >
+        <a class="badge" href="https://www.instagram.com/dan4yk_/?hl=ru">
+          <img src="{% static 'app/img/instagram.png' %}">
         </a>
-        <a class="badge" href="https://vk.com/dan2801"> 
-          <img src="{% static 'app/img/vk.png' %}" >
+        <a class="badge" href="https://vk.com/dan2801">
+          <img src="{% static 'app/img/vk.png' %}">
         </a>
-        <a class="badge" href="https://github.com/Dan4ykS/Django">   
+        <a class="badge" href="https://github.com/Dan4ykS/Django">
           <img src="{% static 'app/img/github.png' %}">
-        </a>  
+        </a>
       </div>
     </div>
   </footer>

@@ -60,11 +60,30 @@ header{
   font-size: 0.7em;
 }
 pre{
-  background-color: #ffffff;
+  background-color: #ffffff
 }
 footer {
   color:white;
   font-size:1.1em;
+}
+.application {
+  border: 5px solid #b94a48;
+  margin-left: auto;
+  text-align: center;
+  font-size: 15px;
+  padding: 3px;
+  transition: 5s all;
+  min-height: 500px;
+}
+.application.game button{
+  transition: 5s all;
+}
+.application.game button:hover{
+
+  transform: scale(1.1);
+}
+.application.game:hover{
+  transform: scale(1.5);
 }
 @media (max-width: 1000px){
   body {
