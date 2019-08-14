@@ -2,12 +2,13 @@
 <html>
 
 <head>
+  {% load staticfiles %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/png" href="{% static 'app/content/img/favicon.png' %}"/>
   <title>{{ title }} - My Django Application</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  {% load staticfiles %}
   <link rel="stylesheet" href="{% static 'app/content/Style.css' %}" type="text/css">
 </head>
 

@@ -6,15 +6,33 @@
 <h3>Сюда нужно добавить змейку и приложение определяющее погоду и курс валюты</h3>
 <div class="row">
   <div class="col-md-4 application">
-    <p>Узнать погоду!</p>
-    <button type="button" class="btn btn-secondary btn-block">Узнать погоду</button>
+    <h3>Узнать погоду!</h3>
+    <div class="input-group weather_info">
+      <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="button">Узнать погоду</button>
+      </div>
+    </div>
+    <section>
+    <div class="row">
+      <div class="col-md-6 weather">
+        <p>Погода в городе 1</p>
+      </div>
+      <div class="col-md-6 weather">
+        <p>Погода в городе 2</p>
+      </div>
+    </div>
+    </section>
   </div>
   <div class="col-md-4 application game">
-    <p>Змейка!</p>
+    <h3>Змейка!</h3>
+    <p>Ваш лучший счет:</p>
+    <p>Сыграно игр:</p>
+    <p>Рекорд: </p>
     <button type="button" class="btn btn-secondary btn-block">Играть</button>
   </div>
   <div class="col-md-4 application">
-    <p>Конвертировать валюту!</p>
+    <h3>Конвертировать валюту!</h3>
     <button type="button" class="btn btn-secondary btn-block">Конвертировать</button>
   </div>
 </div>

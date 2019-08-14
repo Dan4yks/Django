@@ -78,12 +78,25 @@ footer {
 .application.game button{
   transition: 5s all;
 }
-.application.game button:hover{
+.application .weather_info {
+  height: 200px;
+}
+.application .weather_info button{
+  height: 38px;
+}
+.application .weather {
+  height: 267px;
+  border: 1px solid black;
+}
+/* .application.game button:hover{
 
   transform: scale(1.1);
-}
-.application.game:hover{
+} */
+/* .application.game:hover{
   transform: scale(1.5);
+} */
+.application.game p{
+  text-align: left;
 }
 @media (max-width: 1000px){
   body {
