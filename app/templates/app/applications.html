@@ -5,35 +5,52 @@
 <h3>{{ message }}</h3>
 <h3>Сюда нужно добавить змейку и приложение определяющее погоду и курс валюты</h3>
 <div class="row">
-  <div class="col-md-4 application">
-    <h3>Узнать погоду!</h3>
-    <div class="input-group weather_info">
-      <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-      <div class="input-group-append">
-        <button class="btn btn-success" type="button">Узнать погоду</button>
+  <div class="col-md-6 application">
+    <form method="post">
+      {% csrf_token %}
+      <h3>Погодное приложение</h3>
+      <div class="input-group weather_info">
+        {{ weather_form }}
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Узнать погоду!</button>
+        </div>
+    </form>
+  </div>
+  <section>
+    <div class="card-group">
+      {% for city in city_info %}
+      <div class="card">
+        <div class="card-body weather">
+          <h4 class="card-title">Город: <b>{{city.city}}</b></h4>
+          <p class="card-text">Температура: {{city.temp}}<sup>o</sup></p>
+          <img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="Card image cap">
+          <p>Скорость ветра: {{city.wind}} м/с</p>
+          <p>Влажность: {{city.humidity}} %</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if cities_for_user %}
+    <div class="col-12 delete">
+      <div class="dropright">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Выберите город который хотите удалить
+        </button>
+        <div class="dropdown-menu" x-placement="right-start"
+          style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+          {% for city in cities_for_user %}
+          <a class="dropdown-item" href="/delete/{{city.id}}">{{ city.name }}</a>
+          {% endfor %}
+        </div>
       </div>
     </div>
-    <section>
-    <div class="row">
-      <div class="col-md-6 weather">
-        <p>Погода в городе 1</p>
-      </div>
-      <div class="col-md-6 weather">
-        <p>Погода в городе 2</p>
-      </div>
-    </div>
-    </section>
-  </div>
-  <div class="col-md-4 application game">
-    <h3>Змейка!</h3>
-    <p>Ваш лучший счет:</p>
-    <p>Сыграно игр:</p>
-    <p>Рекорд: </p>
-    <button type="button" class="btn btn-secondary btn-block">Играть</button>
-  </div>
-  <div class="col-md-4 application">
-    <h3>Конвертировать валюту!</h3>
-    <button type="button" class="btn btn-secondary btn-block">Конвертировать</button>
-  </div>
+    {% endif %}
+  </section>
+</div>
+<div class="col-md-6 application">
+  <h3>Конвертировать валюту!</h3>
+  <button type="button" class="btn btn-secondary btn-block">Конвертировать</button>
+</div>
 </div>
 {% endblock %}

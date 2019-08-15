@@ -27,3 +27,11 @@ class Review(models.Model):
     review = models.TextField(verbose_name='Отзыв')
     def __str__ (self):
         return self.user_name
+class Weather(models.Model):
+    user_name = models.CharField(max_length=45,verbose_name='Имя пользователя',default='')
+    name = models.CharField(max_length=45,verbose_name='Название города')
+    class Meta:
+        verbose_name='Город'
+        verbose_name_plural='Погода'
+    def __str__(self):
+        return self.name

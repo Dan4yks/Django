@@ -30,6 +30,7 @@ urlpatterns = [
          name='login'),
     path('registration/', views.registration, name='registration'),
     path('<int:news_id>/', views.detail, name='detail'),
+    path('delete/<int:id>/', views.delete,name='delete'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

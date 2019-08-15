@@ -3,10 +3,11 @@ Definition of forms.
 """
 
 from django import forms
+from django.forms import TextInput
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
-from app.models import Review
+from app.models import Review,Weather
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
@@ -52,3 +53,12 @@ class ReviewForm (forms.ModelForm):
                                             'placeholder': 'Напишите что-нибудь =)',
                                             'rows': 5 }),
         }
+class WeatherForm (forms.ModelForm):
+    name = forms.CharField(max_length=50,
+                        label=_(""),
+                        widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Введите название города'}))
+    class Meta:
+        model=Weather
+        fields=('name',)

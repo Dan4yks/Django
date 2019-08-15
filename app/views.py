@@ -5,11 +5,13 @@ Definition of views.
 from datetime import datetime
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpRequest
-from app.models import News,Review
-from app.forms import UserForm,ReviewForm
+from app.models import News,Review,Weather
+from app.forms import UserForm,ReviewForm,WeatherForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseNotFound,HttpResponseRedirect
+import requests
 
 
 
@@ -19,7 +21,7 @@ def home(request):
         request,
         'app/index.html',
         {
-            'title':'Первое приложение',
+            'title':'Главная',
             'year':datetime.now().year,
         }
     )
@@ -48,6 +50,35 @@ def review(request):
     )
 @login_required(login_url='/login') 
 def applications(request):
+    key = 'fdd843b3da461e71c8c9445379bb286f' 
+    cities = Weather.objects.all()
+    cities_for_user = []
+    # Проверяю есть ли у пользователя список городов (чтоб каждому пользователю выводить только те города которыми он интересовался)   
+    for city in cities:
+        if city.user_name == request.user.username :
+            cities_for_user.append(city)
+    all_cities = []
+    for city in cities_for_user:
+        url = 'https://api.openweathermap.org/data/2.5/weather?q='+city.name+'&units=metric&appid='+key
+        resp = requests.get(url).json()
+        city_info={
+            'city': city.name,
+            'temp': round(resp['main']['temp']),
+            'icon': resp['weather'][0]['icon'],
+            'wind': resp['wind']['speed'],
+            'humidity': resp['main']['humidity'],
+        }
+        all_cities.append(city_info)
+    weather_form=WeatherForm()
+    if request.method == "POST":
+        weather_form=WeatherForm(request.POST)
+        print(weather_form)
+        if weather_form.is_valid():
+            new_weather = weather_form.save(commit=False)
+            new_weather.user_name = request.user.username
+            new_weather.save()
+            return redirect(applications)
+
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -56,6 +87,9 @@ def applications(request):
             'title':'Приложения',
             'message':'Страница для описания сайта.',
             'year':datetime.now().year,
+            'city_info':all_cities,
+            'weather_form': weather_form,
+            'cities_for_user':cities_for_user,
         }
     )
 
@@ -67,7 +101,7 @@ def homepage(request):
         'app/homepage.html',
         {
             'news':news,
-            'title':'Домашняя страница',
+            'title':'Отчеты',
             'message':'Страница для описания сайта.',
             'year':datetime.now().year,
         }
@@ -102,3 +136,7 @@ def registration(request):
             'year':datetime.now().year,
         }
     )
+def delete(request,id):
+    weather = Weather.objects.get(id=id)
+    weather.delete()
+    return redirect(applications)
