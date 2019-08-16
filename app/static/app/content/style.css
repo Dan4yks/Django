@@ -135,8 +135,18 @@ footer {
 .delete button {
   font-size: 10px;
 }
-.btn-block{
-  width: 430px;
+.start {
+  padding-bottom:20px;
+}
+.result {
+  padding-bottom:10px;
+}
+.conv{
+  padding: 0px;
+  margin-left: 67.5%;
+} 
+.conv button{
+  width: 177.41px;
 }
 @media (max-width: 1000px){
   body {
@@ -148,6 +158,9 @@ footer {
   }
   footer {
     font-size: 0.9em;
+  }
+  .conv{
+    margin-left: 0px;
   }
   .body-content {
     font-size: 1em;
