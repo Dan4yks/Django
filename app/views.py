@@ -25,6 +25,8 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+
 @login_required(login_url='/login') #Декоратор для проверки зарегистрирован ли пользователь
 def review(request):
     review_form=ReviewForm()
@@ -48,6 +50,8 @@ def review(request):
             'year':datetime.now().year,
         }
     )
+
+
 @login_required(login_url='/login') 
 def applications(request):
     key = 'fdd843b3da461e71c8c9445379bb286f' 
@@ -93,6 +97,7 @@ def applications(request):
         }
     )
 
+
 def homepage(request):
     news=News.objects.all()
     assert isinstance(request, HttpRequest)
@@ -106,6 +111,8 @@ def homepage(request):
             'year':datetime.now().year,
         }
     )
+    
+
 def detail(request,news_id):
     news = get_object_or_404(News, id=news_id)
     assert isinstance(request, HttpRequest)
@@ -116,6 +123,8 @@ def detail(request,news_id):
             'year':datetime.now().year,
         }
     )
+
+
 def registration(request):
     user_form=UserForm()
     #Создаем нового пользователя, делаем проверку нет ли уже такого пользователя, автоматически входим на сайт при регитсрации, после регистрации перенаправляем на начальную страницу сайта 
@@ -131,11 +140,14 @@ def registration(request):
     assert isinstance(request, HttpRequest) 
     return render(request, 'app/registration.html',
         {
-            'title':'Создай нового пользователя!',
+            'title':'Создайте нового пользователя!',
             'user_form': user_form,
             'year':datetime.now().year,
         }
     )
+
+
+@login_required(login_url='/login')     
 def delete(request,id):
     weather = Weather.objects.get(id=id)
     weather.delete()

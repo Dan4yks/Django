@@ -44,6 +44,9 @@ h1,h2,h3,h4,h5,h6{
 select {
   max-width: 280px;
 }
+.login input, .registration input{
+  max-width: 280px;
+}
 
 
 /* styles for validation helpers */
@@ -119,9 +122,10 @@ footer {
 /* .application.game:hover{
   transform: scale(1.5);
 } */
-.application.game p{
-  text-align: left;
+.application.second{
+  padding-left:10px;
 }
+
 .form-group{
   margin-left: 20px;
 }
@@ -131,6 +135,9 @@ footer {
 .delete button {
   font-size: 10px;
 }
+.btn-block{
+  width: 430px;
+}
 @media (max-width: 1000px){
   body {
   background-color: #111111;
@@ -138,6 +145,9 @@ footer {
   }
   footer hr {
     border-top: 1.5px solid white;
+  }
+  footer {
+    font-size: 0.9em;
   }
   .body-content {
     font-size: 1em;

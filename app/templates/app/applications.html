@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-body weather">
           <h4 class="card-title">Город: <b>{{city.city}}</b></h4>
-          <p class="card-text">Температура: {{city.temp}}<sup>o</sup></p>
+          <p class="card-text">Температура: {{city.temp}} <sup>o</sup>C</p>
           <img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="Card image cap">
           <p>Скорость ветра: {{city.wind}} м/с</p>
           <p>Влажность: {{city.humidity}} %</p>
@@ -48,9 +48,35 @@
     {% endif %}
   </section>
 </div>
-<div class="col-md-6 application">
+<div class="col-md-6 application second">
   <h3>Конвертировать валюту!</h3>
-  <button type="button" class="btn btn-secondary btn-block">Конвертировать</button>
+  <div class="input-group start">
+      <input type="text" class="form-control" placeholder="Введите вашу сумму">
+      <div class="input-group-append">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выберите валюту</button>
+        <div class="dropdown-menu" data-spy="scroll">
+          <a class="dropdown-item btn" role="button">RUB</a>
+          <a class="dropdown-item btn" role="button">USD</a>
+          <a class="dropdown-item btn" role="button">EUR</a>
+          <a class="dropdown-item btn" role="button">GBP</a>
+        </div>
+      </div>
+    </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary btn-lg btn-block">Конвертировать</button>
+  </div>
+  <div class="input-group result">
+      <input type="text" class="form-control" placeholder="Вы получите" readonly>
+      <div class="input-group-append">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выберите валюту</button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item btn" role="button">RUB</a>
+            <a class="dropdown-item btn" role="button">USD</a>
+            <a class="dropdown-item btn" role="button">EUR</a>
+            <a class="dropdown-item btn" role="button">GBP</a>
+        </div>
+      </div>
+    </div>
 </div>
 </div>
 {% endblock %}
