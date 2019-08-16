@@ -6,7 +6,6 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
   padding-top: 80px;
@@ -39,7 +38,6 @@ h1,h2,h3,h4,h5,h6{
   font-family: 'Roboto',sans-serif;
   font-weight: 900;
 }
-
 /* Set width on the form input elements since they're 100% wide by default */
 select {
   max-width: 280px;
@@ -47,29 +45,22 @@ select {
 .login input, .registration input{
   max-width: 280px;
 }
-
-
 /* styles for validation helpers */
 .field-validation-error {
   color: #b94a48;
 }
-
 .field-validation-valid {
   display: none;
 }
-
 input.input-validation-error {
   border: 1px solid #b94a48;
 }
-
 input[type="checkbox"].input-validation-error {
   border: 0 none;
 }
-
 .validation-summary-errors {
   color: #b94a48;
 }
-
 .validation-summary-valid {
   display: none;
 }
@@ -84,22 +75,18 @@ header{
   font-size: 0.7em;
 }
 pre{
-  background-color: #ffffff
+  background-color: #ffffff;
 }
 footer {
   color:white;
   font-size:1.1em;
 }
 .application {
-  /* border: 5px solid #b94a48; */
   text-align: center;
   font-size: 15px;
   padding: 3px;
   transition: 5s all;
   min-height: 500px;
-}
-.application.game button{
-  transition: 5s all;
 }
 .application .weather_info {
   height: 200px;
@@ -115,15 +102,11 @@ footer {
 .application .weather h4{
   font-size: 17px;
 }
-/* .application.game button:hover{
-
-  transform: scale(1.1);
-} */
-/* .application.game:hover{
-  transform: scale(1.5);
-} */
 .application.second{
   padding-left:10px;
+}
+.mobail{
+  display: none;
 }
 
 .form-group{
@@ -153,8 +136,11 @@ footer {
   background-color: #111111;
   background-image: none;
   }
-  footer hr {
-    border-top: 1.5px solid white;
+  .mobail{
+    display: block;
+  }
+  hr {
+    border: 1.5px solid white;
   }
   footer {
     font-size: 0.9em;
@@ -171,12 +157,4 @@ footer {
   .d-none {
       display: none !important;
    }
-}
-/*.carousel {
-  max-height: 900px !important;
-  width: 100%;
-}
-.carousel-inner img {
-  max-height: 900px !important;
-  width: 100%;
 }

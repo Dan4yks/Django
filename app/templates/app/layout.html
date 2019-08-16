@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400i|Roboto:500,900&display=swap" rel="stylesheet">
   <title>{{ title }} - My Django Application</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 'app/content/Style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'app/content/style.css' %}" type="text/css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
               <a class="nav-link" href="{% url 'home1' %}">Отчеты</a>
             </li>
           </ul>
-          {%include 'app/loginpartial.html'%}
+          {% include 'app/loginpartial.html' %}
         </div>
       </div>
     </nav>
