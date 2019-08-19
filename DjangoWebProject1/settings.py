@@ -27,7 +27,7 @@ SECRET_KEY = 'ebf1ccc0-e1e5-428d-b828-28a493b86021'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['dan4yk.ru','www.dan4yk.ru']
-ALLOWED_HOSTS = ['loalhost','127.0.0.1','dan4yk.pythonanywhere.com']
+ALLOWED_HOSTS = []
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = [
