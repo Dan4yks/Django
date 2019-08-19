@@ -1,6 +1,6 @@
 body {
   padding-bottom: 20px;
-  background-color: #e0a43c8a;
+  background-color: #5f3c00a3;
   background-image: url("../img/mountain.jpg");/* двоеточие для того чтобы поиск файла происходил на папку выше */
   background-blend-mode: multiply;
   background-size: cover;
@@ -12,11 +12,13 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 20px;
   font-family: 'Open Sans', sans-serif;
 }
-.body-content .description{
-  font-size: 0.8em;
+.header_tem{
+  font-size: 60px;
+  padding: 3%;
+  text-align: center;
 }
 a{
   font-family: 'Roboto',sans-serif;
@@ -33,6 +35,8 @@ p{
 .report{
   font-family: 'Roboto',sans-serif;
   font-weight: 500;
+  text-indent: 40px;
+  text-align: justify;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: 'Roboto',sans-serif;
@@ -89,7 +93,7 @@ footer {
   min-height: 500px;
 }
 .application .weather_info {
-  height: 200px;
+  height: 260px;
   width: 100%;
 }
 .application .weather_info button{
@@ -127,6 +131,7 @@ footer {
 .conv{
   padding: 0px;
   margin-left: 67.5%;
+  
 } 
 .conv button{
   width: 177.41px;

@@ -1,9 +1,7 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
-<h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
-<h3>Сюда нужно добавить змейку и приложение определяющее погоду и курс валюты</h3>
+<h3 class="header_tem">Страница для того чтобы сделать сайт более разнообразным и функциональным</h3>
 <div class="row">
   <div class="col-md-6 application">
     <form method="post">
@@ -14,69 +12,75 @@
         <div class="input-group-append">
           <button class="btn btn-success" type="submit">Узнать погоду!</button>
         </div>
+        <p class="text-justify"></p>
     </form>
   </div>
-  <section>
-    <div class="card-group">
-      {% for city in city_info %}
-      <div class="card">
-        <div class="card-body weather">
-          <h4 class="card-title">Город: <b>{{city.city}}</b></h4>
-          <p class="card-text">Температура: {{city.temp}} <sup>o</sup>C</p>
-          <img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="Card image cap">
-          <p>Скорость ветра: {{city.wind}} м/с</p>
-          <p>Влажность: {{city.humidity}} %</p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    {% if cities_for_user %}
-    <div class="col-12 delete">
-      <div class="dropright">
-        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Выберите город который хотите удалить
-        </button>
-        <div class="dropdown-menu" x-placement="right-start"
-          style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-          {% for city in cities_for_user %}
-          <a class="dropdown-item" href="/delete/{{city.id}}">{{ city.name }}</a>
-          {% endfor %}
-        </div>
+  <div class="card-group">
+    {% for city in city_info %}
+    <div class="card">
+      <div class="card-body weather">
+        <h4 class="card-title">Город: <b>{{city.city}}</b></h4>
+        <p class="card-text">Температура: {{city.temp}} <sup>o</sup>C</p>
+        <img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="Card image cap">
+        <p>Скорость ветра: {{city.wind}} м/с</p>
+        <p>Влажность: {{city.humidity}} %</p>
       </div>
     </div>
-    {% endif %}
-  </section>
+    {% endfor %}
+  </div>
+  {% if cities_for_user %}
+  <div class="col-12 delete">
+    <div class="dropright">
+      <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Выберите город который хотите удалить
+      </button>
+      <div class="dropdown-menu" x-placement="right-start"
+        style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+        {% for city in cities_for_user %}
+        <a class="dropdown-item" href="/delete/{{city.id}}">{{ city.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
 <div class="col-md-6 application second">
   <h3>Конвертер валют</h3>
   <div class="input-group start">
-      <input type="text" class="form-control" placeholder="Введите вашу сумму">
-      <div class="input-group-append">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выберите валюту</button>
-        <div class="dropdown-menu" data-spy="scroll">
-          <a class="dropdown-item btn" role="button">RUB</a>
-          <a class="dropdown-item btn" role="button">USD</a>
-          <a class="dropdown-item btn" role="button">EUR</a>
-          <a class="dropdown-item btn" role="button">GBP</a>
-        </div>
+    <input type="text" class="form-control" placeholder="Введите вашу сумму">
+    <div class="input-group-append">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">Выберите валюту</button>
+      <div class="dropdown-menu" data-spy="scroll">
+        <a class="dropdown-item btn" role="button">RUB</a>
+        <a class="dropdown-item btn" role="button">USD</a>
+        <a class="dropdown-item btn" role="button">EUR</a>
+        <a class="dropdown-item btn" role="button">GBP</a>
       </div>
     </div>
+  </div>
   <div class="input-group result">
-      <input type="text" class="form-control" placeholder="Вы получите" readonly>
-      <div class="input-group-append">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выберите валюту</button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item btn" role="button">RUB</a>
-            <a class="dropdown-item btn" role="button">USD</a>
-            <a class="dropdown-item btn" role="button">EUR</a>
-            <a class="dropdown-item btn" role="button">GBP</a>
-        </div>
+    <input type="text" class="form-control" placeholder="Вы получите" readonly>
+    <div class="input-group-append">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">Выберите валюту</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item btn" role="button">RUB</a>
+        <a class="dropdown-item btn" role="button">USD</a>
+        <a class="dropdown-item btn" role="button">EUR</a>
+        <a class="dropdown-item btn" role="button">GBP</a>
       </div>
     </div>
-    <div class="col-md-4 offset-md-8 conv">
-        <button type="button" class="btn btn-primary">Конвертировать</button>
-      </div>
+  </div>
+  <div class="col-md-4 offset-md-8 conv">
+    <button type="button" class="btn btn-primary">Конвертировать</button>
+  </div>
+  <p class="text"></p>
+  <div class="col-lg-12">
+    <h3>Немного о приложениях</h3>
+    <p class="text-justify">Хоть я уже и рассказывал о том, как сделаны приложения, но здесь хочу немного поговорить о API и Json. <br><br> API - описание способов (набор классов, процедур, функций, структур или констант), которыми одна компьютерная программа может взаимодействовать с другой программой. API определяет функциональность, которую предоставляет программа (модуль, библиотека), при этом API позволяет абстрагироваться от того, как именно эта функциональность реализована. Сайты предоставляют по API данные к котрым ты хочешь получить информацию в формате Json, что сильно облегчает работу по их использованию и конечно же это намного легче чем парсить необходимую информацию. <br><br> Теперь немного про Json. Json - текстовый формат обмена данными, основанный на JavaScript. Как и многие другие текстовые форматы, Json легко читается людьми. Формат Json был разработан Дугласом Крокфордом. Несмотря на происхождение от JavaScript, формат считается независимым от языка и может использоваться практически с любым языком программирования. Для многих языков существует готовый код для создания и обработки данных в формате Json. Именно поэтому работать с такими данными очень удобно.</p>
+  </div>
 </div>
 </div>
 {% endblock %}
